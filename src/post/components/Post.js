@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import { IconButton } from '@mui/material';
 
 
-const Post = () => {
+const Post = (props) => {
   return (
     <Card sx={{ minWidth: 275, margin: 3}}>
       <CardContent>
@@ -15,13 +15,10 @@ const Post = () => {
           Post
         </Typography>
         <Typography variant="h5" component="div">
-          Titulo
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          Breve descripcion
+          {props.title}
         </Typography>
         <Typography variant="body2">
-          Descripcion
+          {props.body}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

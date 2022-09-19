@@ -4,7 +4,7 @@ import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hook/useAuth";
-import { AppBar, Box, Grid, Link, Toolbar } from '@mui/material';
+import {  Box, Link } from '@mui/material';
 import {Routes, Route} from 'react-router-dom'
 import Posts from './Posts';
 
