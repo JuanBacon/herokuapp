@@ -12,26 +12,32 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
+import { AppBar, Toolbar } from '@mui/material';
 
-let theme = createTheme();
+let theme = createTheme({
+  palette: {
+    primary: {
+      main:'#8561c5'},
+    secondary: {main:'#2979ff'},
+  },
+});
 theme = responsiveFontSizes(theme);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
       <ThemeProvider theme={theme}>
+          <AppBar position='relative'>
+            <Toolbar>
+              <Box sx={{display: 'flex', flexDirection: 'column'}}>
+                  <Typography variant="h3">HerokuApp </Typography>
+                  <Typography variant="p">por Juan Bustamante </Typography>
+                </Box>
+            </Toolbar>
+          </AppBar>
       <Container>
         <CssBaseline>
-          <Box sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}>
-            <Typography variant="h3">HerokuApp </Typography>
-            <Typography variant="p">by Juan Bustamante </Typography>
-            <App />
-          </Box>
+          <App />
         </CssBaseline>
       </Container>
     </ThemeProvider>

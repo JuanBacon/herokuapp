@@ -36,7 +36,7 @@ export default function Login() {
   
       signin(userLogin.email, userLogin.password)
       .then(() => {
-        navigate('/')
+        navigate('/posts')
       })
       .catch((error) => {
         setCatchError(error.message)

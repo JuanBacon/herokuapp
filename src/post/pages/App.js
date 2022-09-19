@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Routes>
         <Route
-            path="/"
+            path="*"
             element={
               <PrivateRoute>
                 <Home />

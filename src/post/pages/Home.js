@@ -1,11 +1,12 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hook/useAuth";
-import { Grid, Link } from '@mui/material';
+import { AppBar, Box, Grid, Link, Toolbar } from '@mui/material';
+import {Routes, Route} from 'react-router-dom'
+import Posts from './Posts';
 
 const Home = () => {
 
@@ -20,32 +21,21 @@ const Home = () => {
 
   return (
     <ThemeProvider theme={theme}>
-
-        <Container component="main" maxWidth="xs">
+        <Container component="main">
             <CssBaseline />
-            <Grid container>
-                <Grid item xs>
-                    <Typography component="p" variant="p">Bienvenido, {user.email}! </Typography>
-                </Grid>
-                <Grid item>
-                    <Link href='' onClick={handlelogout}>
-                        Cerrar sesion
-                    </Link>
-                </Grid>
-            </Grid>
-            <Box
-            sx={{
-                marginTop: 8,
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-            }}
-            >
-                <div>Elemento1</div>
-                <div>Elemento1</div>
-                <div>Elemento1</div>
-                <div>Elemento1</div>
-            </Box>
+            <Box sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}>
+            <Typography variant="p">Bienvenido </Typography>
+            <Typography variant="h4">{user.email} </Typography>
+            <Link href='' onClick={handlelogout}>Cerrar Sesion</Link>
+          </Box>
+            <Routes>
+                <Route path= "/posts" element={<Posts/>} />
+            </Routes>
         </Container>
     </ThemeProvider>
   )

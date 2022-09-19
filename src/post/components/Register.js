@@ -36,7 +36,7 @@ export default function Register() {
   
       signup(userRegister.email, userRegister.password)
       .then(() => {
-        navigate('/')
+        navigate('/posts')
       })
       .catch((error) => {
         setCatchError(error.message)
