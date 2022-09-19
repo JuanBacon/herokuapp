@@ -23,6 +23,7 @@ export const useAuth = () => {
 
 function useProvideAuth() {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   
   const signin = (email, password) => {
     return firebase
@@ -44,22 +45,6 @@ function useProvideAuth() {
         setUser(false);
       });
   };
-  const sendPasswordResetEmail = (email) => {
-    return firebase
-      .auth()
-      .sendPasswordResetEmail(email)
-      .then(() => {
-        return true;
-      });
-  };
-  const confirmPasswordReset = (code, password) => {
-    return firebase
-      .auth()
-      .confirmPasswordReset(code, password)
-      .then(() => {
-        return true;
-      });
-  };
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
@@ -68,6 +53,7 @@ function useProvideAuth() {
       } else {
         setUser(false);
       }
+      setLoading(false);
     });
 
     return () => unsubscribe();
@@ -78,7 +64,5 @@ function useProvideAuth() {
     signin,
     signup,
     signout,
-    sendPasswordResetEmail,
-    confirmPasswordReset,
   };
 }

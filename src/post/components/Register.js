@@ -40,7 +40,6 @@ export default function Register() {
       })
       .catch((error) => {
         setCatchError(error.message)
-        console.log(error);
       })
     
   };
